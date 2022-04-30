@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Badge from "@mui/material/Badge";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Container = styled.div`
-  background-color: red;
+  background-color: #2d3436;
   height: 60px;
 `;
 
@@ -18,8 +18,9 @@ const Store = styled.div`
   width: 50%;
 `;
 
-const Logo = styled.h1`
+const Logo = styled.h2`
   font-weight: bold;
+  color: #fff;
 `;
 
 const Menu = styled.div`
@@ -30,9 +31,10 @@ const Menu = styled.div`
 `;
 
 const MenuItem = styled.div`
+  color: #fff;
   font-size: 14px;
   cursor: pointer;
-  margin-left: 12px;
+  margin-left: 24px;
 `;
 
 const Navbar = () => {
@@ -47,7 +49,7 @@ const Navbar = () => {
           <MenuItem>Login</MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
-              <ShoppingCartRoundedIcon />
+              <ShoppingCartIcon />
             </Badge>
           </MenuItem>
         </Menu>
