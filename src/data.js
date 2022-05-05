@@ -5,8 +5,10 @@ import headphone from "../src/images/category1_img.png";
 import smartWatch from "../src/images/category2_img.png";
 import macMonitor from "../src/images/category3_img.png";
 import magicKey from "../src/images/category4_img.png";
-import product1 from "../src/images/product1.png";
 import product2 from "../src/images/product2.png";
+import product3 from "../src/images/product3.png";
+import product4 from "../src/images/product4.png";
+import product5 from "../src/images/product5.png";
 
 export const slideData = [
   {
@@ -51,11 +53,11 @@ export const products_data = [
   },
   {
     id: 2,
-    img: product2,
+    img: product5,
   },
   {
     id: 3,
-    img: product2,
+    img: product4,
   },
   {
     id: 4,
@@ -63,11 +65,11 @@ export const products_data = [
   },
   {
     id: 5,
-    img: product2,
+    img: product5,
   },
   {
     id: 6,
-    img: product2,
+    img: product4,
   },
   {
     id: 7,
@@ -75,6 +77,6 @@ export const products_data = [
   },
   {
     id: 8,
-    img: product2,
+    img: product5,
   },
 ];
