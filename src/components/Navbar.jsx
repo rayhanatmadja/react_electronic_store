@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Routes, Route, Link } from "react-router-dom";
 
 const Container = styled.div`
   background-color: #2d3436;
@@ -21,6 +22,7 @@ const Store = styled.div`
 const Logo = styled.h2`
   font-weight: bold;
   color: #fff;
+  text-decoration: none;
 `;
 
 const Menu = styled.div`
@@ -42,11 +44,23 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Store>
-          <Logo>ZAPLN.</Logo>
+          <Logo>
+            <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
+              ZAPLN.
+            </Link>
+          </Logo>
         </Store>
         <Menu>
           <MenuItem>Register</MenuItem>
           <MenuItem>Login</MenuItem>
+          <MenuItem>
+            <Link
+              to="/product_list"
+              style={{ textDecoration: "none", color: "#fff" }}
+            >
+              Products
+            </Link>
+          </MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
               <ShoppingCartIcon />
