@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { Routes, Route, Link } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -74,7 +75,9 @@ const ProductItem = ({ img }) => {
       <Image src={img} />
       <Info>
         <Icon>
-          <SearchIcon />
+          <Link to="/single_product">
+            <SearchIcon />
+          </Link>
         </Icon>
         <Icon>
           <ShoppingCartOutlinedIcon />

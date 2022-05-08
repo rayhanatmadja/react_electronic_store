@@ -51,8 +51,19 @@ const Navbar = () => {
           </Logo>
         </Store>
         <Menu>
-          <MenuItem>Register</MenuItem>
-          <MenuItem>Login</MenuItem>
+          <MenuItem>
+            <Link
+              to="/register"
+              style={{ textDecoration: "none", color: "#fff" }}
+            >
+              Register
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to="/login" style={{ textDecoration: "none", color: "#fff" }}>
+              Login
+            </Link>
+          </MenuItem>
           <MenuItem>
             <Link
               to="/product_list"
