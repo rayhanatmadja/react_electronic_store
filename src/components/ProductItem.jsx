@@ -76,7 +76,14 @@ const ProductItem = ({ img }) => {
       <Info>
         <Icon>
           <Link to="/single_product">
-            <SearchIcon />
+            <SearchIcon
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#fff",
+              }}
+            />
           </Link>
         </Icon>
         <Icon>

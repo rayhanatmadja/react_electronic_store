@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   background-color: #2d3436;
@@ -74,7 +74,9 @@ const Navbar = () => {
           </MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
-              <ShoppingCartIcon />
+              <Link to="/cart_shop">
+                <ShoppingCartIcon style={{ color: "#fff" }} />
+              </Link>
             </Badge>
           </MenuItem>
         </Menu>

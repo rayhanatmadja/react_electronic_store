@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import imgRegister from "../images/register_img.jpg";
+import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -16,6 +18,7 @@ const LeftSide = styled.div`
   flex: 1;
   flex-direction: column;
   padding: 50px 100px 50px 50px;
+  justify-content: center;
 `;
 const Title = styled.h2`
   margin-bottom: 50px;
@@ -53,6 +56,11 @@ const Login = () => {
     <Container>
       <Wrapper>
         <LeftSide>
+          <Link to="/">
+            <KeyboardBackspaceRoundedIcon
+              style={{ cursor: "pointer", marginBottom: "10px" }}
+            />
+          </Link>
           <Title>Welcome Back to ZAPLN!</Title>
           <Form>
             <Input placeholder="Username" />

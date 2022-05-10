@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
@@ -70,6 +70,11 @@ const FilterStorage = styled.button`
     background-color: #000;
     color: #fff;
   }
+
+  &:active {
+    background-color: #000;
+    color: #fff;
+  }
 `;
 const AddContainer = styled.div`
   width: 50%;
@@ -82,7 +87,7 @@ const AmountContainer = styled.div`
   align-items: center;
   font-weight: 700;
 `;
-const Amount = styled.span`
+const Amount = styled.input`
   width: 30px;
   height: 30px;
   border: 1px solid black;
@@ -90,6 +95,7 @@ const Amount = styled.span`
   align-items: center;
   justify-content: center;
   margin: 0px 20px;
+  text-align: center;
 `;
 const Button = styled.button`
   padding: 15px;
@@ -108,6 +114,24 @@ const Button = styled.button`
 `;
 
 const SingleProduct = () => {
+  const [num, setNum] = useState(0);
+
+  let incNum = () => {
+    if (num < 10) {
+      setNum(Number(num) + 1);
+    }
+  };
+
+  let decNum = () => {
+    if (num > 0) {
+      setNum(Number(num) - 1);
+    }
+  };
+
+  const handleChangeNum = e => {
+    setNum(e.target.value);
+  };
+
   return (
     <Container>
       <Announcement />
@@ -139,9 +163,12 @@ const SingleProduct = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <RemoveRoundedIcon style={{ cursor: "pointer" }} />
-              <Amount>1</Amount>
-              <AddRoundedIcon style={{ cursor: "pointer" }} />
+              <RemoveRoundedIcon
+                style={{ cursor: "pointer" }}
+                onClick={decNum}
+              />
+              <Amount type="text" value={num} onChange={handleChangeNum} />
+              <AddRoundedIcon style={{ cursor: "pointer" }} onClick={incNum} />
             </AmountContainer>
             <Button>Add To Cart</Button>
           </AddContainer>
