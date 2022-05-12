@@ -3,16 +3,19 @@ import styled from "styled-components";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   background-color: #2d3436;
   height: 60px;
+  ${mobile({ height: "50px" })}
 `;
 
 const Wrapper = styled.div`
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
+  ${mobile({ padding: "10px 0px" })}
 `;
 
 const Store = styled.div`
@@ -23,6 +26,7 @@ const Logo = styled.h2`
   font-weight: bold;
   color: #fff;
   text-decoration: none;
+  ${mobile({ fontSize: "24px" })}
 `;
 
 const Menu = styled.div`
@@ -45,7 +49,7 @@ const Navbar = () => {
       <Wrapper>
         <Store>
           <Logo>
-            <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
+            <Link to="/home" style={{ textDecoration: "none", color: "#fff" }}>
               ZAPLN.
             </Link>
           </Logo>
@@ -60,7 +64,7 @@ const Navbar = () => {
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link to="/login" style={{ textDecoration: "none", color: "#fff" }}>
+            <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
               Login
             </Link>
           </MenuItem>

@@ -11,7 +11,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Products = () => {
+const Products = ({ sort }) => {
   return (
     <Container>
       {products_data.map(item => {

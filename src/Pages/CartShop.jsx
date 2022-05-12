@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import macStudio from "../images/mac-studio.png";
+import { Link } from "react-router-dom";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -158,9 +159,11 @@ const CartShop = () => {
       <Wrapper>
         <Title>Your Cart</Title>
         <Top>
-          <TopBtn backgroundColor="transparent" txtColor="black">
-            Back Shopping
-          </TopBtn>
+          <Link to="/product_list">
+            <TopBtn backgroundColor="transparent" txtColor="black">
+              Back Shopping
+            </TopBtn>
+          </Link>
           <TopBtn backgroundColor="black" txtColor="white">
             Checkout Now
           </TopBtn>

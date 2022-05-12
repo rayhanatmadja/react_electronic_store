@@ -34,7 +34,7 @@ const Input = styled.input`
   padding: 15px;
 `;
 const Button = styled.button`
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 10px 20px;
   background-color: #000;
   color: #fff;
@@ -60,13 +60,17 @@ const AggrementContent = styled.p`
   font-size: 14px;
 `;
 const Checkbox = styled.input``;
+const Reminder = styled.p`
+  font-size: 14px;
+  margin: 10px 0 0 35px;
+`;
 
 const Register = () => {
   return (
     <Container>
       <Wrapper>
         <LeftSide>
-          <Link to="/">
+          <Link to="/home">
             <KeyboardBackspaceRoundedIcon
               style={{ cursor: "pointer", marginBottom: "10px" }}
             />
@@ -84,6 +88,9 @@ const Register = () => {
                 By registering, you must agree to the terms and conditions
               </AggrementContent>
             </Aggrement>
+            <Reminder>
+              Already have account ?, <Link to="/">sign in here</Link>
+            </Reminder>
             <Button>Create Account</Button>
           </Form>
         </LeftSide>
