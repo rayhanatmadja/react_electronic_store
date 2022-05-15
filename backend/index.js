@@ -4,6 +4,7 @@ const app = express();
 const port = 8080;
 const dotenv = require("dotenv");
 const userRouter = require("./routes/user");
+const authRouter = require("./routes/login_regis_auth");
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ mongoose
 
 // using json file format
 app.use(express.json());
+app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 
 app.listen(process.env.PORT || port, () => {
