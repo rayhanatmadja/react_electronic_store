@@ -25,9 +25,9 @@ router.post("/register", async (req, res) => {
   // Checking adding new user fail or not
   try {
     const addedUser = await newUser.save();
-    res.status(201).json(addedUser);
+    return res.status(201).json(addedUser);
   } catch (err) {
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 });
 
@@ -38,7 +38,10 @@ router.post("/login", async (req, res) => {
     const user = await UserModel.findOne({ username: req.body.username });
 
     // auth login by username
-    !user && res.status(401).json("Wrong username");
+    // !user && res.status(401).json("Wrong username");
+    if (!user) {
+      return res.status(401).json("Wrong username");
+    }
 
     const hashPw = CryptoJs.AES.decrypt(user.password, process.env.PASS_SECRET);
 
@@ -48,21 +51,24 @@ router.post("/login", async (req, res) => {
     const password = req.body.password;
 
     // auth login by password
-    password != normalPw && res.status(401).json("Wrong password");
+    // password != normalPw && res.status(401).json("Wrong password");
+    if (password != normalPw) {
+      return res.status(401).json("Wrong password");
+    }
 
     // token acces using jsonwebtoken for more secure
     const tokenAccess = jwt.sign(
       {
         id: user._id,
-        isAdmin: user._isAdmin,
+        isAdmin: user.isAdmin,
       },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
 
-    res.status(200).json({ user, tokenAccess });
+    return res.status(200).json({ user, tokenAccess });
   } catch (err) {
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 });
 
