@@ -3,8 +3,9 @@ const { default: mongoose } = require("mongoose");
 const app = express();
 const port = 8080;
 const dotenv = require("dotenv");
-const userRouter = require("./routes/user");
 const authRouter = require("./routes/login_regis_auth");
+const userRouter = require("./routes/user");
+const productRouter = require("./routes/product");
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ mongoose
 app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
+app.use("/api/products", productRouter);
 
 app.listen(process.env.PORT || port, () => {
   console.log(`Backend running on port : ${port}`);

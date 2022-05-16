@@ -13,7 +13,7 @@ const ProductSchema = new Schema(
       required: true,
     },
     img: {
-      type: true,
+      type: String,
       required: true,
     },
     prize: {
