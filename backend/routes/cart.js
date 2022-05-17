@@ -29,7 +29,7 @@ router.get("/", verifyAdminAuth, async (req, res) => {
 });
 
 // GET USER CART BY ID
-router.get("/find/:userId", verifyAdminAuth, async (req, res) => {
+router.get("/find/:userId", verifyTokenAndAuth, async (req, res) => {
   try {
     const userCart = await CartModel.findOne({ userId: req.params.id });
     res.status(200).json(userCart);
