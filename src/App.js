@@ -5,6 +5,7 @@ import SingleProduct from "./Pages/SingleProduct";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import CartShop from "./Pages/CartShop";
+import SuccesPayment from "./Pages/SuccesPayment";
 import { Routes, Route, Link } from "react-router-dom";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="product_list" element={<ProductList />} />
         <Route path="single_product" element={<SingleProduct />} />
         <Route path="cart_shop" element={<CartShop />} />
+        <Route path="succes_payment" element={<SuccesPayment />} />
       </Routes>
     </>
   );

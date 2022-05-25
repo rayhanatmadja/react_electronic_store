@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
@@ -8,6 +8,8 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import macStudio from "../images/mac-studio.png";
 import { Link } from "react-router-dom";
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -135,6 +137,10 @@ const SummaryBtn = styled.button`
 
 const CartShop = () => {
   const [num, setNum] = useState(0);
+  const [stripeToken, setStripeToken] = useState(null);
+
+  const keyToken =
+    "pk_test_51L0HxNK7kQ9Kk4p5jZTKE3Ve1dKGeMvdIiryKKH6U1S53yIt3gE3oH7GzUQIF017CzEDUOsXcYAiZ9SQfQxGsmTG000g6sBBRa";
 
   let incNum = () => {
     if (num < 10) {
@@ -152,6 +158,28 @@ const CartShop = () => {
     setNum(e.target.value);
   };
 
+  // STRIPE PAYMENT
+  const onToken = token => {
+    setStripeToken(token);
+  };
+
+  useEffect(() => {
+    const sendReq = async () => {
+      try {
+        const res = await axios.post("http://localhost:8080/api/payment", {
+          tokenId: stripeToken.id,
+          amount: 2000000,
+        });
+        console.log(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    if (stripeToken) {
+      return sendReq;
+    }
+  }, [stripeToken]);
+
   return (
     <Container>
       <Announcement />
@@ -164,9 +192,22 @@ const CartShop = () => {
               Back Shopping
             </TopBtn>
           </Link>
-          <TopBtn backgroundColor="black" txtColor="white">
-            Checkout Now
-          </TopBtn>
+          <StripeCheckout
+            name="ZAPLN."
+            description="Payment process"
+            token={onToken}
+            stripeKey={keyToken}
+            currency="IDR"
+            shippingAddress
+            billingAddress
+            amount={20000}
+          >
+            <Link to="/succes_payment">
+              <TopBtn backgroundColor="black" txtColor="white">
+                Checkout Now
+              </TopBtn>
+            </Link>
+          </StripeCheckout>
         </Top>
         <Bottom>
           <BottomContent>
